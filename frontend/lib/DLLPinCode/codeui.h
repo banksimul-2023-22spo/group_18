@@ -18,6 +18,7 @@ public:
 signals:
     void sendPin(short);
 public slots:
+    //tämä funktio vastaanottaa cardhexcoden Mikan DLLpincoden käyttöön (kts. mainwindow.cpp:n signaalit)
     void handleCardHexCodeReceived(const QString& hexCode);
 private slots:
     void numberClickHandler();

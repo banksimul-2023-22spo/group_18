@@ -25,9 +25,10 @@ CodeUI::~CodeUI()
 {
     delete ui;
 }
-
+//tämä funktio vastaanottaa cardhexcoden Mikan DLLpincoden käyttöön (kts. mainwindow.cpp:n signaalit)
 void CodeUI::handleCardHexCodeReceived(const QString& hexCode)
 {
+    //asettaa testinä labellille sen hexcodearvon, joka ensin tuli DLLSerialPortin kautta Exeen ja sieltä vielä tänne.
     ui->cardhexcodeLabel->setText(hexCode);
 }
 

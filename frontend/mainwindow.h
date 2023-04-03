@@ -24,6 +24,7 @@ public:
     static QString getBaseUrl();
 
 signals:
+    //tämä funktio päivittää nykyisen luetun cardhexcoden
     void cardHexCodeUpdated(const QString& hexCode);
 
 private slots:

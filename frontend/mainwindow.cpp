@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QSerialPort>
+#include "dllserialport.h"
 #include "dllrestapi.h"
 #include "codeui.h"
 
@@ -12,8 +13,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     m_serialPort = new DLLSerialPort(this);
     m_codeUI = new CodeUI(this);
-    connect(m_serialPort, &DLLSerialPort::dataReceived, this, &MainWindow::handleSerialDataReceived);
-    connect(this, &MainWindow::cardHexCodeUpdated, m_codeUI, &CodeUI::handleCardHexCodeReceived);
+    // Numeroikaa connectionit, jotta voidaan refrensoida niihin dokumentaatiossa.
+    connect(m_serialPort, &DLLSerialPort::dataReceived, this, &MainWindow::handleSerialDataReceived); //1. signaali
+    connect(this, &MainWindow::cardHexCodeUpdated, m_codeUI, &CodeUI::handleCardHexCodeReceived); //2. signaali
 }
 
 MainWindow::~MainWindow()
@@ -24,9 +26,6 @@ MainWindow::~MainWindow()
 QString MainWindow::getBaseUrl()
 {
     return "https://bankdb-r18.onrender.com";
-    //tarvittaessa helppo muuttaa
-    //esimerkiksi
-    //return "https://azure.com/myapp"; Tämä pitäisi saada muutettua johonkin ulkoiseen palvelimeen, koska yhteys db4free:stä tähän on nyt lokaali
 }
 
 void MainWindow::getCustomerData()
@@ -67,6 +66,7 @@ void MainWindow::on_customerButton_clicked()
 
 }
 
+//tämä funktio emittaa cardhexcoden Mikan DLLpincoden käyttöön
 void MainWindow::handleSerialDataReceived(const QString& data)
 {
     qDebug() << "Serial data received:" << data;
