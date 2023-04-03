@@ -195,14 +195,14 @@
   <widget class="QLabel" name="cardhexcodeLabel">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>120</x>
      <y>30</y>
-     <width>63</width>
+     <width>191</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>cardhexcode</string>
+    <string>cardhexcode tulee tähä</string>
    </property>
   </widget>
  </widget>

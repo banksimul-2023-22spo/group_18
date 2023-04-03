@@ -17,6 +17,8 @@ public:
     ~CodeUI();
 signals:
     void sendPin(short);
+public slots:
+    void handleCardHexCodeReceived(const QString& hexCode);
 private slots:
     void numberClickHandler();
     void enterClickHandler();

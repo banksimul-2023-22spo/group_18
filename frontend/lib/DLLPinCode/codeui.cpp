@@ -26,6 +26,11 @@ CodeUI::~CodeUI()
     delete ui;
 }
 
+void CodeUI::handleCardHexCodeReceived(const QString& hexCode)
+{
+    ui->cardhexcodeLabel->setText(hexCode);
+}
+
 void CodeUI::numberClickHandler()
 {
     QPushButton *numberButton = qobject_cast<QPushButton *>(sender());
@@ -49,7 +54,6 @@ void CodeUI::enterClickHandler()
       {
 
       }
-
 }
 
 bool CodeUI::CompareStrings(QString str1,QString str2)

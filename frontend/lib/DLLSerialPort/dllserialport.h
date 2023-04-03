@@ -12,7 +12,7 @@ class DLLSERIALPORT_EXPORT DLLSerialPort : public QObject
 
 public:
     explicit DLLSerialPort(QObject *parent = nullptr);
-    QString getSerialData();
+    QString sendData();
 
 signals:
     void dataReceived(const QString& data);

@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 
@@ -34,6 +35,7 @@ public:
     QPushButton *ButtonClear;
     QPushButton *ButtonStop;
     QPushButton *button0;
+    QLabel *cardhexcodeLabel;
 
     void setupUi(QDialog *CodeUI)
     {
@@ -82,6 +84,9 @@ public:
         button0 = new QPushButton(CodeUI);
         button0->setObjectName("button0");
         button0->setGeometry(QRect(160, 270, 21, 29));
+        cardhexcodeLabel = new QLabel(CodeUI);
+        cardhexcodeLabel->setObjectName("cardhexcodeLabel");
+        cardhexcodeLabel->setGeometry(QRect(160, 30, 63, 20));
 
         retranslateUi(CodeUI);
 
@@ -104,6 +109,7 @@ public:
         ButtonClear->setText(QCoreApplication::translate("CodeUI", "CLEAR", nullptr));
         ButtonStop->setText(QCoreApplication::translate("CodeUI", "STOP", nullptr));
         button0->setText(QCoreApplication::translate("CodeUI", "0", nullptr));
+        cardhexcodeLabel->setText(QCoreApplication::translate("CodeUI", "cardhexcode", nullptr));
     } // retranslateUi
 
 };

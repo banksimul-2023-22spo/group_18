@@ -11,7 +11,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     m_serialPort = new DLLSerialPort(this);
+    m_codeUI = new CodeUI(this);
     connect(m_serialPort, &DLLSerialPort::dataReceived, this, &MainWindow::handleSerialDataReceived);
+    connect(this, &MainWindow::cardHexCodeUpdated, m_codeUI, &CodeUI::handleCardHexCodeReceived);
 }
 
 MainWindow::~MainWindow()
@@ -63,31 +65,12 @@ void MainWindow::on_customerButton_clicked()
 {
     getCustomerData();
 
-    // Get list of available serial ports
-    const auto serialPortInfos = QSerialPortInfo::availablePorts();
-
-    // Loop over ports and print information
-    for (const QSerialPortInfo &portInfo : serialPortInfos) {
-        qDebug() << "\n"
-                 << "Port:" << portInfo.portName() << "\n"
-                 << "Location:" << portInfo.systemLocation() << "\n"
-                 << "Description:" << portInfo.description() << "\n"
-                 << "Manufacturer:" << portInfo.manufacturer() << "\n"
-                 << "Serial number:" << portInfo.serialNumber() << "\n"
-                 << "Vendor Identifier:"
-                 << (portInfo.hasVendorIdentifier()
-                     ? QByteArray::number(portInfo.vendorIdentifier(), 16)
-                     : QByteArray()) << "\n"
-                 << "Product Identifier:"
-                 << (portInfo.hasProductIdentifier()
-                     ? QByteArray::number(portInfo.productIdentifier(), 16)
-                     : QByteArray());
-    }
-
 }
 
 void MainWindow::handleSerialDataReceived(const QString& data)
 {
     qDebug() << "Serial data received:" << data;
     ui->serialDataLabel->setText(data);
+    cardhexcode = data;
+    emit cardHexCodeUpdated(cardhexcode);
 }

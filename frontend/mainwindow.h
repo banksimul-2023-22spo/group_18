@@ -23,6 +23,9 @@ public:
     ~MainWindow();
     static QString getBaseUrl();
 
+signals:
+    void cardHexCodeUpdated(const QString& hexCode);
+
 private slots:
     void on_customerButton_clicked();
     void getCustomerData();
@@ -31,11 +34,12 @@ private:
     Ui::MainWindow *ui;
     QNetworkReply *reply;
     DLLSerialPort *m_serialPort;
+    CodeUI *m_codeUI;
     QNetworkAccessManager *loginManager;
     QString response_data;
     QString username;
     QString token;
-
+    QString cardhexcode;
 };
 
 #endif // MAINWINDOW_H
