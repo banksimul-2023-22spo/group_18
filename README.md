@@ -13,3 +13,7 @@ Samuli Pylkkönen - API functions component development on Qt, data formatting
 
 # Showcase
 ![image](https://user-images.githubusercontent.com/87731856/233630613-7da6348a-46cf-4542-b7de-87d91f3a82c0.png)
+
+# RabbitMQ queries for sending e-mails to reduce duplicates and bad times
+![image](https://user-images.githubusercontent.com/87731856/234818853-652d5213-91e3-4ef6-8c15-ea7b9d147c94.png)
+
