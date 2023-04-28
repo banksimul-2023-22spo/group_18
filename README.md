@@ -1,3 +1,5 @@
+Video: https://www.youtube.com/watch?v=TrTP_JJx--8
+
 # Group 18
 
 Sauli Savinainen - Serial port component development, Qt-development to all components (custom sum withdrawal, POST API functions...), Raspberry Pi cross-compilation, CRUD-table development, REST API deployment to web service and MySQL database hosting & administration, RabbitMQ integration, graphics and sound features
